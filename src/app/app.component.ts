@@ -25,7 +25,7 @@ export class AppComponent implements OnInit {
   }
   onClickConvert(selected_cur: string, converted_cur: string, amount: number) {
     this.http.get(`https://free.currconv.com/api/v7/convert?apiKey=${this.CURRENCY_API_KEY}&q=${selected_cur}_${converted_cur}&compact=ultra`).subscribe((res: {converted: string, amount: number}) => {
-      this.converted_amount = ((res[Object.keys(res)[0]]) * amount).toPrecision(5);
+      this.converted_amount = (amount * (res[Object.keys(res)[0]])).toString();
       this.converted_cur = converted_cur;
     })
   }

@@ -10,4 +10,6 @@ html {
     height: 100%;
     background-position: center; 
     background-repeat: no-repeat;
+    position: relative;
+   
 }

@@ -40,8 +40,7 @@ header > h1 {
     width: 93%;
     padding: 10px;
     border-radius: 5px;
-    border: 2px rgba(0, 0, 0, 0.507) solid;
-    
+    border: 1px rgba(0, 0, 0, 0.507) solid;
 }
 
 .drop {
@@ -54,7 +53,6 @@ header > h1 {
     padding: 10px;
     font-size: 15px;
     border-radius: 5px;
-    border: 2px rgba(0, 0, 0, 0.507) solid;
     
 }
 

@@ -1,7 +1,7 @@
 <header>
   <h1>Current</h1>
 </header>
-<div class="card">
+<div class="card" *ngIf="available_currencies">
   <form class="container">
     <p style="background-color: royalblue; padding: 20px; margin-bottom: 0; ">Enter Amount</p>
     <span style="color: rgb(46, 44, 44);  font-size: 12px;">Enter the amount you want to convert.</span>
@@ -10,19 +10,19 @@
     <div style="display: flex; flex-direction: row;">
       <div class="drop">
         <select name="dropdown" id="dropdown" #from>
-          <option *ngFor="let cur of available_currencies" [value]="cur">{{cur}}</option>
+          <option *ngFor="let cur of available_currencies.results | keyvalue" [value]="cur.key">{{cur.key}} - ({{available_currencies.results[cur.key].currencyName}})</option>
         </select>
       </div>
-      <span style="color: black; margin: 20px; font-size: 15px;">TO</span>
+      <span  style="color: black; margin: 20px; font-size: 15px;">TO</span>
       <div class="drop">
         <select name="dropdown2" id="dropdown2" #to>
-          <option *ngFor="let cur of available_currencies" [value]="cur">{{cur}}</option>
+          <option *ngFor="let cur of available_currencies.results | keyvalue" [value]="cur.key">{{cur.key}} - ({{available_currencies.results[cur.key].currencyName}})</option>
         </select>
       </div>
     </div>
     <button (click)="onClickConvert(from.value, to.value, amount.value)" class="btn">Convert</button>
   </form>
   <hr>
-  <p style="color: black; font-size: 13px;" *ngIf="converted_amount" > {{converted_cur}} {{converted_amount}}</p>
+  <p style="color: black; font-size: 13px;" *ngIf="converted_amount" > {{converted_cur}} {{converted_amount}} <span *ngIf="converted_symbol"> {{converted_symbol}}</span></p>
 </div>
 
